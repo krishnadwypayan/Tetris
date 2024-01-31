@@ -7,9 +7,26 @@
 
 import SwiftUI
 
+// TODO Define squareSize based on screenSize
+var nextTetriCellSquareSize: CGFloat = 15
+
 struct NextTetriminoeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            ForEach(0..<4, id: \.self) { i in
+                row
+            }
+        }
+        .overlay {
+            RoundedRectangle(cornerRadius: squareRadius)
+                .stroke(.primary)
+        }
+    }
+    
+    var row = HStack(spacing: 0) {
+        ForEach(0..<4, id: \.self) { i in
+            Cell(size: nextTetriCellSquareSize)
+        }
     }
 }
 

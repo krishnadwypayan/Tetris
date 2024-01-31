@@ -14,6 +14,10 @@
 		98C6B81D2B69825D006B5E52 /* TetrisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C6B81C2B69825D006B5E52 /* TetrisUITests.swift */; };
 		98C6B81F2B69825D006B5E52 /* TetrisUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C6B81E2B69825D006B5E52 /* TetrisUITestsLaunchTests.swift */; };
 		98C6B82C2B6982FD006B5E52 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C6B82B2B6982FD006B5E52 /* HomeView.swift */; };
+		98DD0FB12B6A8430003209E9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0FB02B6A8430003209E9 /* GameView.swift */; };
+		98DD0FB32B6AB821003209E9 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0FB22B6AB821003209E9 /* GameBoardView.swift */; };
+		98DD0FB72B6ACB07003209E9 /* GameControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0FB62B6ACB07003209E9 /* GameControllerView.swift */; };
+		98DD0FB92B6ACC07003209E9 /* NextTetriminoeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD0FB82B6ACC07003209E9 /* NextTetriminoeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		98C6B81C2B69825D006B5E52 /* TetrisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisUITests.swift; sourceTree = "<group>"; };
 		98C6B81E2B69825D006B5E52 /* TetrisUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		98C6B82B2B6982FD006B5E52 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		98DD0FB02B6A8430003209E9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		98DD0FB22B6AB821003209E9 /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
+		98DD0FB62B6ACB07003209E9 /* GameControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerView.swift; sourceTree = "<group>"; };
+		98DD0FB82B6ACC07003209E9 /* NextTetriminoeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextTetriminoeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,10 @@
 				98C6B82B2B6982FD006B5E52 /* HomeView.swift */,
 				98C6B8052B69825C006B5E52 /* Assets.xcassets */,
 				98C6B8072B69825C006B5E52 /* Preview Content */,
+				98DD0FB02B6A8430003209E9 /* GameView.swift */,
+				98DD0FB22B6AB821003209E9 /* GameBoardView.swift */,
+				98DD0FB62B6ACB07003209E9 /* GameControllerView.swift */,
+				98DD0FB82B6ACC07003209E9 /* NextTetriminoeView.swift */,
 			);
 			path = Tetris;
 			sourceTree = "<group>";
@@ -258,7 +270,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				98C6B82C2B6982FD006B5E52 /* HomeView.swift in Sources */,
+				98DD0FB92B6ACC07003209E9 /* NextTetriminoeView.swift in Sources */,
+				98DD0FB12B6A8430003209E9 /* GameView.swift in Sources */,
 				98C6B8022B698259006B5E52 /* TetrisApp.swift in Sources */,
+				98DD0FB32B6AB821003209E9 /* GameBoardView.swift in Sources */,
+				98DD0FB72B6ACB07003209E9 /* GameControllerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
