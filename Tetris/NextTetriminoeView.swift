@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-// TODO Define squareSize based on screenSize
-var nextTetriCellSquareSize: CGFloat = 15
+
+var nextTetriCellSquareSize: CGFloat = boardCellSquareSize/2
 
 struct NextTetriminoeView: View {
     var body: some View {

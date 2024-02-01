@@ -12,9 +12,11 @@ let left = "chevron.left"
 let right = "chevron.right"
 let down = "chevron.down"
 
+let controllerBtnSize = boardCellSquareSize * 1.5
+
 struct GameControllerView: View {
     var body: some View {
-        HStack(spacing: 40) {
+        HStack(spacing: controllerBtnSize) {
             // Rotate tetrominoes button
             ControllerButton(icon: clockwise)
             
@@ -43,7 +45,7 @@ struct ControllerButton: View {
                 .overlay {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(.primary)
-                        .frame(width: 40, height: 40)
+                        .frame(width: controllerBtnSize, height: controllerBtnSize)
                 }
         })
     }

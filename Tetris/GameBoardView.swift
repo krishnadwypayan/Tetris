@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-// TODO Define squareSize based on screenSize
-let boardCellSquareSize: CGFloat = 30
+
+// Define squareSize based on screenSize
+// boardCellSquareSize = minimum of (screen height/width) divided by (no.of rows/cols + x)
+// where x is the additional space to be left outside the board in terms of cells
+let boardCellSquareSize: CGFloat = min(UIScreen.main.bounds.height/((CGFloat)(rows + 8)), UIScreen.main.bounds.width/((CGFloat)(cols + 2)))
+
 let squareRadius: CGFloat = 2
+
 let rows: Int = 20
 let cols: Int = 10
 
