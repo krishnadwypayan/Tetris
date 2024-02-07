@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-var nextTetriCellSquareSize: CGFloat = boardCellSquareSize/2
+var nextTetroCellSquareSize: CGFloat = boardCellSquareSize/2
 
 struct NextTetrominoeView: View {
     var body: some View {
@@ -25,7 +25,7 @@ struct NextTetrominoeView: View {
     
     var row = HStack(spacing: 0) {
         ForEach(0..<4, id: \.self) { i in
-            Cell(size: nextTetriCellSquareSize)
+            Cell(size: nextTetroCellSquareSize)
         }
     }
 }

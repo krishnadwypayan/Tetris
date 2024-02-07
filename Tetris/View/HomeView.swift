@@ -37,15 +37,34 @@ struct NameView: View {
 }
 
 struct MenuView: View {
+    
+    @State private var newGame: Bool = true
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            NavigationLink(destination: GameView()) {
+            
+            Group {
+                if !newGame {
+                    NavigationLink(destination: GameView(newGame: $newGame)) {
+                        Text("Continue")
+                            .font(.title3).bold()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.large)
+                }
+            }
+            
+            NavigationLink(destination: GameView(newGame: $newGame)) {
                 Text("New Game")
                     .font(.title3).bold()
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
+            .onTapGesture {
+                newGame = true
+            }
             
             Button {
                 // Implement

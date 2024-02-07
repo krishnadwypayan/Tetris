@@ -15,15 +15,15 @@ let boardCellSquareSize: CGFloat = min(UIScreen.main.bounds.height/((CGFloat)(ro
 
 let squareRadius: CGFloat = 2
 
-let rows: Int = 20
-let cols: Int = 10
-
 struct GameBoardView: View {
+    
+    @ObservedObject var gameState: GameState
+    
     var body: some View {
 
         VStack(spacing: 0) {
             ForEach(0..<rows, id: \.self) { i in
-                GameRow()
+                GameRow(row: gameState.gameState[i])
             }
         }
         .overlay {
@@ -34,10 +34,12 @@ struct GameBoardView: View {
 }
 
 struct GameRow: View {
+    var row: [Color]
+    
     var body: some View {
         HStack(spacing: 0) {
             ForEach(0..<cols, id: \.self) { i in
-                Cell(size: boardCellSquareSize)
+                Cell(size: boardCellSquareSize, color: row[i])
             }
         }
     }
@@ -46,14 +48,43 @@ struct GameRow: View {
 struct Cell: View {
     
     var size: CGFloat
+    @Environment(\.colorScheme) var colorScheme
+    var color: Color = .primary
     
     var body: some View {
-        RoundedRectangle(cornerRadius: squareRadius)
-            .stroke(.primary.opacity(0.1), lineWidth: 1)
-            .frame(width: size, height: size, alignment: .center)
+        ZStack {
+            RoundedRectangle(cornerRadius: squareRadius)
+                .fill(isColored() ? color : getDefaultBgColor())
+                .stroke(isColored() ? color : getDefaultStrokeColor(), lineWidth: 1)
+            
+            if isColored() {
+                RoundedRectangle(cornerRadius: squareRadius)
+                    .stroke(Color.white.opacity(0.6), lineWidth: 1)
+                    .blur(radius: 1)
+                    .offset(x: 1, y: 1)
+                
+                RoundedRectangle(cornerRadius: squareRadius)
+                    .stroke(Color.black.opacity(0.3), lineWidth: 1)
+                    .blur(radius: 1)
+                    .offset(x: -1, y: -1)
+            }
+        }
+        .frame(width: size, height: size, alignment: .center)
+    }
+    
+    func isColored() -> Bool {
+        return color != .primary
+    }
+    
+    func getDefaultBgColor() -> Color {
+        return colorScheme == .dark ? Color.black.opacity(0.5) : Color.white
+    }
+    
+    func getDefaultStrokeColor() -> Color {
+        return colorScheme == .dark ? Color.white.opacity(0.1) : Color.black.opacity(0.1)
     }
 }
 
 #Preview {
-    GameBoardView()
+    GameBoardView(gameState: GameState())
 }

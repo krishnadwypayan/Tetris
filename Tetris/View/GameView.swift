@@ -8,22 +8,34 @@
 import SwiftUI
 
 struct GameView: View {
+
+    @StateObject var gameState = GameState()
+    @Binding var newGame: Bool
+
     var body: some View {
         VStack {
             
-            NextTetriminoeView()
+            NextTetrominoeView()
                 .padding()
 
-            GameBoardView()
+            GameBoardView(gameState: gameState)
             
             GameControllerView()
                 .padding()
 
         }
         .padding()
+        .onAppear {
+            if newGame {
+                gameState.reset()
+                newGame = false
+            }
+            
+            gameState.fallDown()
+        }
     }
 }
 
 #Preview {
-    GameView()
+    GameView(newGame: .constant(false))
 }
