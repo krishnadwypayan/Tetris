@@ -10,7 +10,7 @@ import SwiftUI
 
 var nextTetriCellSquareSize: CGFloat = boardCellSquareSize/2
 
-struct NextTetriminoeView: View {
+struct NextTetrominoeView: View {
     var body: some View {
         VStack(spacing: 0) {
             ForEach(0..<4, id: \.self) { i in
@@ -31,5 +31,5 @@ struct NextTetriminoeView: View {
 }
 
 #Preview {
-    NextTetriminoeView()
+    NextTetrominoeView()
 }
