@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+let counterClockwise = "arrow.counterclockwise"
 let clockwise = "arrow.clockwise"
 let left = "chevron.left"
 let right = "chevron.right"
@@ -17,10 +18,11 @@ let controllerBtnSize = boardCellSquareSize * 1.5
 struct GameControllerView: View {
     var body: some View {
         HStack(spacing: controllerBtnSize) {
+            
+            ControllerButton(icon: counterClockwise)
+            
             // Rotate tetrominoes button
             ControllerButton(icon: clockwise)
-            
-            Spacer()
             
             // left
             ControllerButton(icon: left)

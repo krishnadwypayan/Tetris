@@ -15,7 +15,7 @@ struct GameView: View {
     var body: some View {
         VStack {
             
-            NextTetrominoeView()
+            NextTetrominoeView(gameState: gameState)
                 .padding()
 
             GameBoardView(gameState: gameState)
@@ -32,6 +32,12 @@ struct GameView: View {
             }
             
             gameState.fallDown()
+        }
+        .alert("Game Over!", isPresented: $gameState.gameOver) {
+            Button("Restart", role: .cancel) {
+                gameState.reset()
+                gameState.fallDown()
+            }
         }
     }
 }

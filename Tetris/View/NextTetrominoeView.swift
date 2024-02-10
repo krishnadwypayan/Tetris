@@ -8,13 +8,16 @@
 import SwiftUI
 
 
-var nextTetroCellSquareSize: CGFloat = boardCellSquareSize/2
+let nextTetroCellSquareSize: CGFloat = boardCellSquareSize/2
 
 struct NextTetrominoeView: View {
+    
+    @ObservedObject var gameState: GameState
+    
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(0..<4, id: \.self) { i in
-                row
+            ForEach(0..<nextTetroRows, id: \.self) { i in
+                NextTetroRow(row: gameState.nextTetrominoeState[i])
             }
         }
         .overlay {
@@ -22,14 +25,21 @@ struct NextTetrominoeView: View {
                 .stroke(.primary)
         }
     }
+}
+
+struct NextTetroRow: View {
+    var row: [Color]
     
-    var row = HStack(spacing: 0) {
-        ForEach(0..<4, id: \.self) { i in
-            Cell(size: nextTetroCellSquareSize)
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(0..<nextTetroCols, id: \.self) { i in
+                Cell(size: nextTetroCellSquareSize, color: row[i])
+            }
         }
     }
 }
 
+
 #Preview {
-    NextTetrominoeView()
+    NextTetrominoeView(gameState: GameState())
 }
